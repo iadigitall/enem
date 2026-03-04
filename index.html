@@ -36,7 +36,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header / Navbar -->
     <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-2">
@@ -51,7 +50,6 @@
         </div>
     </nav>
 
-    <!-- 1️⃣ HERO SECTION -->
     <header class="pt-32 pb-20 px-6 overflow-hidden">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             <div class="reveal active">
@@ -91,7 +89,6 @@
         </div>
     </header>
 
-    <!-- 2️⃣ SEÇÃO PROBLEMA -->
     <section class="py-24 px-6 bg-slate-50 border-y border-slate-100">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div class="reveal">
@@ -134,7 +131,6 @@
         </div>
     </section>
 
-    <!-- 3️⃣ SEÇÃO SOLUÇÃO -->
     <section class="py-24 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 reveal">
@@ -174,7 +170,6 @@
         </div>
     </section>
 
-    <!-- 4️⃣ COMO FUNCIONA -->
     <section class="py-24 px-6 bg-slate-900 text-white overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -212,7 +207,6 @@
         </div>
     </section>
 
-    <!-- 5️⃣ PROVA SOCIAL -->
     <section class="py-24 px-6 bg-[#F8FAFC]">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold text-center mb-16 reveal text-slate-900">Estudantes que já estão evoluindo</h2>
@@ -278,7 +272,6 @@
         </div>
     </section>
 
-    <!-- 6️⃣ PREÇO -->
     <section id="preço" class="py-24 px-6 relative overflow-hidden">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-indigo-100 rounded-full blur-[120px] -z-10"></div>
         
@@ -317,7 +310,6 @@
                     </li>
                 </ul>
 
-                <!-- BOTÃO DE CHECKOUT ATUALIZADO -->
                 <a href="https://pay.cakto.com.br/psp8d22_793491" class="checkout-btn btn-hover block w-full py-5 bg-[#22C55E] text-white text-xl font-black rounded-2xl shadow-xl shadow-green-200 text-center uppercase tracking-tight">
                     QUERO MEU CRONOGRAMA AGORA
                 </a>
@@ -329,7 +321,6 @@
         </div>
     </section>
 
-    <!-- 7️⃣ FAQ -->
     <section class="py-24 px-6 bg-white border-t border-slate-100">
         <div class="max-w-3xl mx-auto">
             <h2 class="text-3xl font-bold text-center mb-12 reveal text-slate-900 tracking-tight">Perguntas Frequentes</h2>
@@ -365,7 +356,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-12 border-t border-slate-200 bg-slate-50 text-center">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col items-center gap-4 mb-8">
@@ -386,7 +376,6 @@
     <script>
         lucide.createIcons();
 
-        // Animação de Reveal no Scroll
         const revealElements = document.querySelectorAll('.reveal');
         const revealOnScroll = () => {
             const triggerBottom = window.innerHeight / 5 * 4;
@@ -401,22 +390,25 @@
         window.addEventListener('scroll', revealOnScroll);
         window.onload = revealOnScroll;
 
-        // Lógica de Redirecionamento e Notificação
-        const checkoutBtn = document.querySelector('.checkout-btn');
-        const checkoutLink = "https://pay.cakto.com.br/psp8d22_793491";
+        // Seleciona todos os botões que devem ir para o checkout
+        const checkoutButtons = document.querySelectorAll('.checkout-btn');
 
-        checkoutBtn.addEventListener('click', (e) => {
-            e.preventDefault(); // Evita o clique imediato para mostrar a mensagem
-            
-            const message = document.createElement('div');
-            message.className = 'fixed bottom-10 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-8 py-4 rounded-2xl shadow-2xl z-[100] font-bold animate-pulse text-center';
-            message.innerHTML = '🚀 Redirecionando para o Checkout Seguro...';
-            document.body.appendChild(message);
-            
-            // Pequeno delay para experiência do usuário e então redireciona
-            setTimeout(() => {
-                window.location.href = checkoutLink;
-            }, 800);
+        checkoutButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Previne o comportamento padrão momentaneamente para mostrar a mensagem
+                e.preventDefault();
+                const targetUrl = this.getAttribute('href');
+                
+                const message = document.createElement('div');
+                message.className = 'fixed bottom-10 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-8 py-4 rounded-2xl shadow-2xl z-[100] font-bold animate-pulse text-center';
+                message.innerHTML = '🚀 Redirecionando para o Checkout Seguro...';
+                document.body.appendChild(message);
+                
+                // Redireciona via JavaScript para garantir que funcione em qualquer ambiente
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 600);
+            });
         });
     </script>
 </body>
