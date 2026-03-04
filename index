@@ -294,7 +294,7 @@
         <div class="max-w-5xl mx-auto bg-white rounded-[48px] shadow-2xl border border-slate-100 overflow-hidden reveal flex flex-col md:flex-row">
             <div class="md:w-5/12 bg-indigo-50 p-12 flex flex-col justify-center items-center">
                 <div class="bg-white p-4 rounded-3xl shadow-xl mb-6 border border-slate-200">
-                    <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f67?auto=format&fit=crop&q=80&w=600" alt="Capa do Cronograma" class="rounded-xl w-full h-auto shadow-sm">
+                    <img src="capa.png" alt="Capa do Cronograma" class="rounded-xl w-full h-auto shadow-sm">
                 </div>
                 <div class="text-center">
                     <span class="inline-block px-3 py-1 bg-indigo-600 text-white text-[10px] font-bold uppercase rounded-full mb-2 tracking-widest">Produto Digital</span>
